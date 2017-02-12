@@ -1,0 +1,18 @@
+.sliderImg {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+}
+
+.memory {
+    display: inline-block;
+    position: absolute;
+    left: 25%;
+    top: 30%;
+    transform: translate(-15%, -30%);
+    color: #fff;
+}
+
+.con {
+    position: relative;
+}
