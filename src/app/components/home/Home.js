@@ -3,6 +3,15 @@ import Slider from 'react-slick';
 import Grid from './Grid';
 import styles from './home.css';
 
+const settings = {
+    dots: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true
+};
+
 class Home extends Component {
     render() {
         var settings = {

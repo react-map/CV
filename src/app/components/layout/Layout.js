@@ -7,11 +7,13 @@ class Layout extends Component {
     const styles = {
       root: {
         width: '100%',
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        minHeight: '100vh',
       },
       container: {
         height: this.props.height,
         overflow: 'hidden',
+        minHeight: '100vh'
       }
     };
     const {children} = this.props;

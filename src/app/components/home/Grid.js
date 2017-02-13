@@ -24,33 +24,33 @@ const styles = {
 const tilesData = [
     {
         img: 'http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/LJwi2pNI9vyeT0kMh1O4vEq6Rw.z.rTqTq2hg52aROk!/r/dN8AAAAAAAAA',
-        title: '个人信息',
-        route: '/personalInfo',
+        title: '个人简介',
+        route: '/info',
     },
     {
         img: 'http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/KA.Yzz2pY3Fv.3fPfqbYlqTBAAK96AU7cVgoJ1WxHd8!/r/dAoBAAAAAAAA',
-        title: '教育经历',
-        route: 'pashminu',
+        title: '工作经历',
+        route: '/work',
     },
     {
         img: 'http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/M74ryuvZU8uKUM1RqZrhAjH4wwSNgunTNFkYO6n32q4!/r/dN8AAAAAAAAA',
-        title: '工作经历',
-        route: 'Danson67',
+        title: '开源作品',
+        route: '/project',
     },
     {
         img: 'http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/GN*cI3.A.zwfvUzScRQ9ByrIFsZcbe8hzkvrvX0szKU!/r/dAkBAAAAAAAA',
-        title: '开源作品',
-        route: 'fancycrave1',
+        title: '技术文章',
+        route: '/bog',
     },
     {
         img: 'http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/KuggpgGLsMdOI7cF9dHJ9bjY3gQo5Tlesrruxq4UQvQ!/r/dN4AAAAAAAAA',
         title: '技能清单',
-        route: 'Hans',
+        route: '/skill',
     },
     {
         img: 'http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/cbJ2OT4ajeNU5RFrtCEGP6AHJ3kUyicmdkMiA7Yyluw!/r/dAsBAAAAAAAA',
         title: '致谢',
-        route: 'fancycravel',
+        route: '/tks',
     },
 ];
 

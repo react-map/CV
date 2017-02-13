@@ -19,6 +19,14 @@
     height: 100%;
   }
   
+  .nav {
+    position: fixed;
+    width: 100%;
+    background: -webkit-linear-gradient(top, #f9f9f9, #f3f3f3);
+    z-index: 2;
+    top: 0;
+  }
+  
   .slick-dots {
     bottom: 25px;
   }
@@ -28,22 +36,27 @@
       width: 68vh;
       margin: 0 auto;
     }
+    .nav {
+      width: 68vh;
+    }
   }
   
   .example-enter {
-    opacity: 0.01;
+    transform: translate3d(100%, 0, 0);
   }
   
   .example-enter.example-enter-active {
-    opacity: 1;
-    transition: opacity 500ms ease-in;
+    transform: none;
+    transition: transform 500ms ease-out;
   }
   
   .example-leave {
     opacity: 1;
+    transform: translate3d(100%, 0, 0);
   }
   
   .example-leave.example-leave-active {
-    opacity: 0.01;
-    transition: opacity 300ms ease-in;
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+    transition: opacity 500ms ease-out;
   }

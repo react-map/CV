@@ -1,0 +1,41 @@
+.root {
+    -webkit-user-select: none;
+    position:fixed;
+    width: 100%;
+    background: -webkit-linear-gradient(top, #f9f9f9, #f3f3f3);
+    z-index: 2;
+}
+
+.back {
+    position: absolute;
+    left: 11%;
+    top: 4px;
+    color: #252B33;
+}
+
+/*@media screen and (min-width: 68vh) {
+    .back {
+        position: absolute;
+        left: 13%;
+        top: 4px;
+        color: #252B33;
+    }
+}*/
+
+.now {
+    position: absolute;
+    top: 2px;
+    left: 45%;
+    color: black;
+    font-size: 110%;
+}
+
+.arrow_left {
+    position: relative;
+    top: 5px;
+    left: -5%;
+}
+
+.activeStyle {
+    color: #252B33;
+}
