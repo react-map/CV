@@ -3,8 +3,7 @@ import { Link } from 'react-router';
 import styles from './info.css';
 import Nav from '../nav/Nav';
 
-import { greenA700 } from 'material-ui/styles/colors';
-import { lightBlue500 } from 'material-ui/styles/colors';
+import { greenA700, lightBlue500 } from 'material-ui/styles/colors';
 
 import { List, ListItem } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
@@ -28,14 +27,19 @@ const style = {
         width: 30,
         height: 30
     },
-    layout:{
-        position:'relative',
-        top:55,
-        width:'100%'
+    layout: {
+        position: 'relative',
+        top: 55,
+        width: '100%'
     },
 }
 
 class Info extends Component {
+
+    componentWillMount() {
+        window.scrollTo(0, 0);
+    }
+
     render() {
         return (
             <div >
@@ -58,11 +62,11 @@ class Info extends Component {
                         <ListItem
                             leftIcon={<CommunicationEmail style={style.svg} color={lightBlue500} />}
                             rightIcon={
-                                <a href="mailto:sylvenas@outlook.com">
+                                <a href="mailto:wrsden@gmail.com">
                                     <CommunicationChatBubble color={lightBlue500} />
                                 </a>
                             }
-                            primaryText="sylvenas@outlook.com"
+                            primaryText="wrsden@gmail.com"
                         />
                     </List>
                     <Divider inset={true} />

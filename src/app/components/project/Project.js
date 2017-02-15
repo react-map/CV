@@ -3,17 +3,31 @@ import { Link } from 'react-router';
 import styles from './project.css';
 import Nav from '../nav/Nav';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import IconLink from 'material-ui/svg-icons/content/link';
+import { lightBlue500 } from 'material-ui/styles/colors';
 
 const style = {
     layout: {
         position: 'relative',
         top: 55,
+        marginBottom: 55,
         width: '100%',
     },
+    img: {
+        height: '32vh',
+        //display:'block'
+    },
+    cardMedia: {
+        width: '100%',
+    }
 }
 
 class Project extends Component {
+    
+    componentWillMount() {
+        window.scrollTo(0, 0);
+    }
+
     render() {
         return (
             <div>
@@ -21,25 +35,42 @@ class Project extends Component {
                 <div style={style.layout}>
                     <Card>
                         <CardHeader
-                            title="URL Avatar"
-                            subtitle="Subtitle"
-                            avatar="images/jsa-128.jpg"
+                            title="leaflet.migrationLayer"
+                            subtitle={
+                                <span>Migration data visualization on map
+                                </span>}
+                            avatar="http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/KuggpgGLsMdOI7cF9dHJ9bjY3gQo5Tlesrruxq4UQvQ!/r/dN4AAAAAAAAA"
+                        />
+                        <CardMedia style={style.cardMedia}
+                            overlay={<CardTitle subtitle="leaflet.migrationLayer是使用canvas技术来展示人口流动、车辆、航班等迁徙数据，在地图上的数据可视化。" />}>
+                            <img style={style.img} src="./img/project01.gif" />
+                        </CardMedia>
+
+                    </Card>
+                    <Card>
+                        <CardHeader
+                            title="hangzhouRealEstate"
+                            subtitle="Hangzhou daily real estate sales details"
+                            avatar="http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/KuggpgGLsMdOI7cF9dHJ9bjY3gQo5Tlesrruxq4UQvQ!/r/dN4AAAAAAAAA"
                         />
                         <CardMedia
-                            overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}
+                            overlay={<CardTitle subtitle="使用node.js爬取网络上杭州房产每天的实时销售数据，结合高德地图展示，楼盘具体地理位置、销售面积、单价、预定数等等。" />}
                         >
-                            <img src="images/nature-600-337.jpg" />
+                            <img style={style.img} src="http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/0lxNfa73Xw.Crli4Y0Ug7*I.bLeJsIpnTY6ADgNlEQk!/r/dHkBAAAAAAAA" />
                         </CardMedia>
-                        <CardTitle title="Card title" subtitle="Card subtitle" />
-                        <CardText>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                            Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                            Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-                        </CardText>
-                        <CardActions>
-                            <FlatButton label="Action1" />
-                            <FlatButton label="Action2" />
-                        </CardActions>
+                    </Card>
+                    <Card>
+                        <CardHeader
+                            title="leaflet.magicMarker"
+                            subtitle="Adding magical animation effect to a marker while loading."
+                            avatar="http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/KuggpgGLsMdOI7cF9dHJ9bjY3gQo5Tlesrruxq4UQvQ!/r/dN4AAAAAAAAA"
+                        />
+                        <CardMedia
+                            overlay={<CardTitle subtitle="在初始化marker的时候，自定义多种动画效果。" />}
+                        >
+                            <img style={style.img} src="./img/project03.gif" />
+                        </CardMedia>
+
                     </Card>
                 </div>
             </div>

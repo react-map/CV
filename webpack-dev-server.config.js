@@ -18,8 +18,9 @@ const config = {
     devServer: {
         contentBase: 'src/static',
         inline: true,
-        host: 'localhost',
-        port: 8080
+        //host: 'localhost',
+        port: 8080,
+        host:'0.0.0.0'
     },
     module: {
         rules: [
@@ -32,19 +33,18 @@ const config = {
                 }
             },
             {
-                test: /\.css$/,
-                use: [
-                    {
-                        loader: "style-loader"
-                    },
-                    {
+                test: /.css$/,
+                //loader: ExtractTextPlugin.extract("style-loader", "css-loader", { publicPath: "/dist" })
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: {
                         loader: "css-loader",
-
                         options: {
                             modules: true
                         }
-                    }
-                ]
+                    },
+                    publicPath: "/dist"
+                })
             },
             {
                 test: /\.(png|jpg|svg)$/,
@@ -62,7 +62,11 @@ const config = {
             { from: 'static' },
         ], path.resolve(__dirname, 'src')),
         //独立打包样式
-        new ExtractTextPlugin('style.css'),
+         new ExtractTextPlugin({
+            filename: "style.css",
+            disable: false,
+            allChunks: true,
+        }),
         //独立打包第三方文件
         new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.js' })
     ],

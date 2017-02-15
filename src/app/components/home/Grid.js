@@ -49,7 +49,7 @@ const tilesData = [
     },
     {
         img: 'http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/cbJ2OT4ajeNU5RFrtCEGP6AHJ3kUyicmdkMiA7Yyluw!/r/dAsBAAAAAAAA',
-        title: '致谢',
+        title: '自评与致谢',
         route: '/tks',
     },
 ];

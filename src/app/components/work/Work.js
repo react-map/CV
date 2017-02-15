@@ -25,6 +25,9 @@ const style = {
 }
 
 class Work extends Component {
+    componentWillMount() {
+        window.scrollTo(0, 0);
+    }
     render() {
         return (
             <div >
