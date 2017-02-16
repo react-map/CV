@@ -9,6 +9,7 @@ import { List, ListItem } from 'material-ui/List';
 import ActionGrade from 'material-ui/svg-icons/action/grade';
 import Divider from 'material-ui/Divider';
 import Avatar from 'material-ui/Avatar';
+import RaisedButton from 'material-ui/RaisedButton';
 
 const style = {
     layout: {
@@ -23,6 +24,9 @@ const style = {
     },
     link:{
         textAlign:'center'
+    },
+    info:{
+        marginTop:10
     }
 }
 class Tks extends Component {
@@ -53,7 +57,7 @@ class Tks extends Component {
                             insetChildren={true}
                         />
                     </List>
-                    <p style={style.link}>联系方式在这里<Link to='/info'>个人简介</Link></p>
+                    <p style={style.link}>联系方式戳这里<br/><Link to='/info'> <RaisedButton label="个人简介" primary={true} style={style.info}/></Link></p>
                 </div>
             </div>
         );

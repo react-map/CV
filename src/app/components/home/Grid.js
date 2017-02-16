@@ -28,7 +28,7 @@ const tilesData = [
         route: '/info',
     },
     {
-        img: 'http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/KA.Yzz2pY3Fv.3fPfqbYlqTBAAK96AU7cVgoJ1WxHd8!/r/dAoBAAAAAAAA',
+        img: 'http://y.gtimg.cn/music/photo_new/T005R640x640M000000kjRcZ3chsfF.jpg?n=1',
         title: '工作经历',
         route: '/work',
     },
@@ -38,7 +38,7 @@ const tilesData = [
         route: '/project',
     },
     {
-        img: 'http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/GN*cI3.A.zwfvUzScRQ9ByrIFsZcbe8hzkvrvX0szKU!/r/dAkBAAAAAAAA',
+        img: 'http://p.qpic.cn/music_cover/TPTQPoBDp8OplC2Tkaewjib6NFzBWlvVFoMC7EMlaNFH4q5Gf1iaUL9g/300?n=1',
         title: '技术文章',
         route: '/bog',
     },

@@ -34,7 +34,6 @@ const config = {
             },
             {
                 test: /.css$/,
-                //loader: ExtractTextPlugin.extract("style-loader", "css-loader", { publicPath: "/dist" })
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
                     use: {

@@ -39,7 +39,11 @@ class Info extends Component {
     componentWillMount() {
         window.scrollTo(0, 0);
     }
-
+    
+    shouldComponentUpdate(nextProps, nextState) {
+        return (this.props.router.location.action === 'PUSH');
+    }
+    
     render() {
         return (
             <div >
