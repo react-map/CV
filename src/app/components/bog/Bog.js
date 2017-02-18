@@ -42,7 +42,7 @@ class Bog extends Component {
                                 color={pinkA200} backgroundColor={transparent}
                                 style={{ left: 8 }}
                             >A</Avatar>}
-                            rightIconButton={<a style={style.a} href="http://www.cnblogs.com/sylvenas/p/6376300.html"><IconLink style={style.iconLink} color={lightBlue500}></IconLink></a>}
+                            rightIcon={<a style={style.a} href="http://www.cnblogs.com/sylvenas/p/6386638.html"><IconLink style={style.iconLink} color={lightBlue500}></IconLink></a>}
                             primaryText="服务器端推送技术总结"
                             secondaryText={
                                 <p>最近在做前端页面渲染的时候，有的组件需要跟随后台数据的变化而...</p>
@@ -55,38 +55,37 @@ class Bog extends Component {
                                 color={pinkA200} backgroundColor={transparent}
                                 style={{ left: 8 }}
                             >B</Avatar>}
-                            rightIconButton={<a style={style.a} href="https://github.com/react-map"><IconLink style={style.iconLink} color={lightBlue500}></IconLink></a>}
-                            primaryText="双屏通信总结"
+                            rightIcon={<a style={style.a} href="http://www.cnblogs.com/sylvenas/p/6413616.html"><IconLink style={style.iconLink} color={lightBlue500}></IconLink></a>}
+                            primaryText="一机双屏和双屏通信方案总结"
                             secondaryText={
                                 <p>
-                                    Wish I could come, but I&apos;m out of town this weekend.</p>
+                                   项目中需要用到web一机双屏，也就是一台电脑，两个屏幕，每个屏幕分别展示一部分的内容...</p>
                             }
                             secondaryTextLines={2}
                         />
-                        <Subheader>Recent-Native</Subheader>
+                        <Subheader>React</Subheader>
                         <ListItem
                             leftAvatar={<Avatar
                                 color={pinkA200} backgroundColor={transparent}
                                 style={{ left: 8 }}
                             >C</Avatar>}
-                            rightIconButton={<a style={style.a} href="http://www.cnblogs.com/sylvenas/p/6376300.html"><IconLink style={style.iconLink} color={lightBlue500}></IconLink></a>}
-                            primaryText="在windows搭建react-native android 开发环境总结"
+                            rightIcon={<a style={style.a} href="http://www.cnblogs.com/sylvenas/p/6410116.html"><IconLink style={style.iconLink} color={lightBlue500}></IconLink></a>}
+                            primaryText="react-router3.x hashHistory render两次的bug,及解决方案"
                             secondaryText={
-                                <p>建议第一次启动项目的时候，使用5.0以上版本的android虚拟机...</p>
+                                <p>先写一个简单App页面，其实就是简单修改了react-router的官方例子中的animations例子</p>
                             }
                             secondaryTextLines={2}
                         />
-                        <Divider inset={true} />
+                        <Subheader>React-Native</Subheader>
                         <ListItem
                             leftAvatar={<Avatar
                                 color={pinkA200} backgroundColor={transparent}
                                 style={{ left: 8 }}
                             >D</Avatar>}
-                            rightIconButton={<a style={style.a} href="https://github.com/react-map"><IconLink style={style.iconLink} color={lightBlue500}></IconLink></a>}
-                            primaryText="me, Scott, Jennifer"
+                            rightIcon={<a style={style.a} href="http://www.cnblogs.com/sylvenas/p/6376300.html"><IconLink style={style.iconLink} color={lightBlue500}></IconLink></a>}
+                            primaryText="在windows搭建react-native android 开发环境总结"
                             secondaryText={
-                                <p>
-                                    Wish I could come, but I&apos;m out of town this weekend.</p>
+                                <p>建议第一次启动项目的时候，使用5.0以上版本的android虚拟机...</p>
                             }
                             secondaryTextLines={2}
                         />
@@ -96,24 +95,11 @@ class Bog extends Component {
                                 color={pinkA200} backgroundColor={transparent}
                                 style={{ left: 8 }}
                             >E</Avatar>}
-                            rightIconButton={<a style={style.a} href="http://www.cnblogs.com/sylvenas/p/6376300.html"><IconLink style={style.iconLink} color={lightBlue500}></IconLink></a>}
-                            primaryText="webpack2基本配置"
-                            secondaryText={
-                                <p>建议第一次启动项目的时候，使用5.0以上版本的android虚拟机...</p>
-                            }
-                            secondaryTextLines={2}
-                        />
-                        <Divider inset={true} />
-                        <ListItem
-                            leftAvatar={<Avatar
-                                color={pinkA200} backgroundColor={transparent}
-                                style={{ left: 8 }}
-                            >F</Avatar>}
-                            rightIconButton={<a style={style.a} href="https://github.com/react-map"><IconLink style={style.iconLink} color={lightBlue500}></IconLink></a>}
+                            rightIcon={<a style={style.a} href="http://www.cnblogs.com/sylvenas/p/6406981.html"><IconLink style={style.iconLink} color={lightBlue500}></IconLink></a>}
                             primaryText="webpack1升级到webpack2文档翻译"
                             secondaryText={
                                 <p>
-                                    Wish I could come, but I&apos;m out of town this weekend.</p>
+                                    近日项目要升级到webpack2.2,原来使用的webpack版本是1.12...</p>
                             }
                             secondaryTextLines={2}
                         />
@@ -122,8 +108,8 @@ class Bog extends Component {
                             leftAvatar={<Avatar
                                 color={pinkA200} backgroundColor={transparent}
                                 style={{ left: 8 }}
-                            >G</Avatar>}
-                            rightIconButton={<a style={style.a} href="http://www.cnblogs.com/sylvenas/p/6376300.html"><IconLink style={style.iconLink} color={lightBlue500}></IconLink></a>}
+                            >F</Avatar>}
+                            rightIcon={<a style={style.a} href="http://www.cnblogs.com/sylvenas/p/6378298.html"><IconLink style={style.iconLink} color={lightBlue500}></IconLink></a>}
                             primaryText="node.js爬虫杭州房产销售及数据可视化"
                             secondaryText={
                                 <p>摘要: 现在年轻人到25岁+,总的要考虑买房结婚的问题,2016年的一波房价...</p>
@@ -135,8 +121,8 @@ class Bog extends Component {
                             leftAvatar={<Avatar
                                 color={pinkA200} backgroundColor={transparent}
                                 style={{ left: 8 }}
-                            >H</Avatar>}
-                            rightIconButton={<a style={style.a} href="http://www.cnblogs.com/sylvenas/p/6376300.html"><IconLink style={style.iconLink} color={lightBlue500}></IconLink></a>}
+                            >G</Avatar>}
+                            rightIcon={<a style={style.a} href="http://www.cnblogs.com/sylvenas/p/6376323.html"><IconLink style={style.iconLink} color={lightBlue500}></IconLink></a>}
                             primaryText="esri-leaflet部分瓦片缺失问题及解决办法"
                             secondaryText={
                                 <p>esri-leaflet加载TileLayer的时候，有时候由于数据的原因，造成...</p>

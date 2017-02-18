@@ -1,173 +1,220 @@
-define([
-    "dojo/_base/declare",
-    "dojo/_base/lang", "esri/geometry/Point", "esri/geometry/ScreenPoint"
-], function (declare, lang, Point, ScreenPoint) {
-    return declare("EchartsLayer", null, {
-        name: "EchartsLayer",
-        _map: null,
-        _ec: null,
-        _geoCoord: [],
-        _option: null,
-        _mapOffset: [0, 0],
-        constructor: function (map, ec) {
-            this._map = map;
-            var div = this._echartsContainer = document.createElement('div');
-            div.style.position = 'absolute';
-            div.style.height = map.height + 'px';
-            div.style.width = map.width + 'px';
-            div.style.top = 0;
-            div.style.left = 0;
-            map.__container.appendChild(div);
-            this._init(map, ec);
-        },
-        _init: function (map, ec) {
-            var self = this;
-            self._map = map;
-            self.getEchartsContainer = function () {
-                return self._echartsContainer;
-            };
-            self.getMap = function () {
-                return self._map;
-            };
-            self.geoCoord2Pixel = function (geoCoord) {
-                var point = new Point(geoCoord[0], geoCoord[1]);
-                var pos = self._map.toScreen(point);
-                return [pos.x, pos.y];
-            };
-            self.pixel2GeoCoord = function (pixel) {
-                var point = self._map.toMap(new ScreenPoint(pixel[0], pixel[1]));
-                return [point.lng, point.lat];
-            };
-            self.initECharts = function () {
-                self._ec = ec.init.apply(self, arguments);
-                self._bindEvent();
-                self._addMarkWrap();
-                return self._ec;
-            };
-            self._addMarkWrap = function () {
-                function _addMark(seriesIdx, markData, markType) {
-                    var data;
-                    if (markType == 'markPoint') {
-                        var data = markData.data;
-                        if (data && data.length) {
-                            for (var k = 0, len = data.length; k < len; k++) {
-                                if (!(data[k].name && this._geoCoord.hasOwnProperty(data[k].name))) {
-                                    data[k].name = k + 'markp';
-                                    self._geoCoord[data[k].name] = data[k].geoCoord;
-                                }
-                                self._AddPos(data[k]);
-                            }
-                        }
-                    } else {
-                        data = markData.data;
-                        if (data && data.length) {
-                            for (var k = 0, len = data.length; k < len; k++) {
-                                if (!(data[k][0].name && this._geoCoord.hasOwnProperty(data[k][0].name))) {
-                                    data[k][0].name = k + 'startp';
-                                    self._geoCoord[data[k][0].name] = data[k][0].geoCoord;
-                                }
-                                if (!(data[k][1].name && this._geoCoord.hasOwnProperty(data[k][1].name))) {
-                                    data[k][1].name = k + 'endp';
-                                    self._geoCoord[data[k][1].name] = data[k][1].geoCoord;
-                                }
-                                self._AddPos(data[k][0]);
-                                self._AddPos(data[k][1]);
-                            }
-                        }
-                    }
-                    self._ec._addMarkOri(seriesIdx, markData, markType);
-                }
+var Bog = function (_Component) {
+    _inherits(Bog, _Component);
 
-                self._ec._addMarkOri = self._ec._addMark;
-                self._ec._addMark = _addMark;
-            };
-            self.getECharts = function () {
-                return self._ec;
-            };
-            self.getMapOffset = function () {
-                return self._mapOffset;
-            };
-            self.setOption = function (option, notMerge) {
-                self._option = option;
-                var series = option.series || {};
-                for (var i = 0, item; item = series[i++];) {
-                    var geoCoord = item.geoCoord;
-                    if (geoCoord) {
-                        for (var k in geoCoord) {
-                            self._geoCoord[k] = geoCoord[k];
-                        }
-                    }
-                }
-                for (var i = 0, item; item = series[i++];) {
-                    var markPoint = item.markPoint || {};
-                    var markLine = item.markLine || {};
+    function Bog() {
+        _classCallCheck(this, Bog);
 
-                    var data = markPoint.data;
-                    if (data && data.length) {
-                        for (var k = 0, len = data.length; k < len; k++) {
-                            if (!(data[k].name && this._geoCoord.hasOwnProperty(data[k].name))) {
-                                data[k].name = k + 'markp';
-                                self._geoCoord[data[k].name] = data[k].geoCoord;
-                            }
-                            self._AddPos(data[k]);
-                        }
-                    }
+        return _possibleConstructorReturn(this, (Bog.__proto__ || Object.getPrototypeOf(Bog)).apply(this, arguments));
+    }
 
-                    data = markLine.data;
-                    if (data && data.length) {
-                        for (var k = 0, len = data.length; k < len; k++) {
-                            if (!(data[k][0].name && this._geoCoord.hasOwnProperty(data[k][0].name))) {
-                                data[k][0].name = k + 'startp';
-                                self._geoCoord[data[k][0].name] = data[k][0].geoCoord;
-                            }
-                            if (!(data[k][1].name && this._geoCoord.hasOwnProperty(data[k][1].name))) {
-                                data[k][1].name = k + 'endp';
-                                self._geoCoord[data[k][1].name] = data[k][1].geoCoord;
-                            }
-                            self._AddPos(data[k][0]);
-                            self._AddPos(data[k][1]);
-                        }
-                    }
-                }
-
-                self._ec.setOption(option, notMerge);
-            };
-            self._AddPos = function (obj) {
-
-                var coord = self._geoCoord[obj.name];
-                var pos = self.geoCoord2Pixel(coord);
-                obj.x = pos[0]; //- self._mapOffset[0];
-                obj.y = pos[1]; //- self._mapOffset[1];
-            };
-            self._bindEvent = function () {
-                self._map.on('zoom-end', function (e) {
-                    self.setOption(self._option);
-                });
-                self._map.on('zoom-start', function (e) {
-                    self._ec.clear();
-                });
-                self._map.on('pan', function (e) {
-                    self._ec.clear();
-                });
-                self._map.on('pan-end', function (e) {
-                    self.setOption(self._option);
-                });
-
-                self._ec.getZrender().on('dragstart', function (e) {
-                    self._map.disablePan();
-                    //self._ec.clear();
-                });
-                self._ec.getZrender().on('dragend', function (e) {
-                    self._map.enablePan();
-                    //self.setOption(self._option);
-                });
-                self._ec.getZrender().on('mousewheel', function (e) {
-                    self._ec.clear();
-                    self._map.emit('mouse-wheel', e.event)
-                });
-            };
-
+    _createClass(Bog, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            window.scrollTo(0, 0);
         }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(_Nav2.default, { parentUrl: '/', parentName: '首页', nowName: '个人博客' }),
+                _react2.default.createElement(
+                    'div',
+                    { style: style.layout },
+                    _react2.default.createElement(
+                        _List.List,
+                        null,
+                        _react2.default.createElement(
+                            _Subheader2.default,
+                            null,
+                            'H5'
+                        ),
+                        _react2.default.createElement(_List.ListItem, {
+                            leftAvatar: _react2.default.createElement(
+                                _Avatar2.default,
+                                {
+                                    color: _colors.pinkA200, backgroundColor: _colors.transparent,
+                                    style: { left: 8 }
+                                },
+                                'A'
+                            ),
+                            rightIconButton: _react2.default.createElement(
+                                'a',
+                                { style: style.a, href: 'http://www.cnblogs.com/sylvenas/p/6386638.html' },
+                                _react2.default.createElement(_link2.default, { style: style.iconLink, color: _colors.lightBlue500 })
+                            ),
+                            primaryText: '\u670D\u52A1\u5668\u7AEF\u63A8\u9001\u6280\u672F\u603B\u7ED3',
+                            secondaryText: _react2.default.createElement(
+                                'p',
+                                null,
+                                '\u6700\u8FD1\u5728\u505A\u524D\u7AEF\u9875\u9762\u6E32\u67D3\u7684\u65F6\u5019\uFF0C\u6709\u7684\u7EC4\u4EF6\u9700\u8981\u8DDF\u968F\u540E\u53F0\u6570\u636E\u7684\u53D8\u5316\u800C...'
+                            ),
+                            secondaryTextLines: 2
+                        }),
+                        _react2.default.createElement(_Divider2.default, { inset: true }),
+                        _react2.default.createElement(_List.ListItem, {
+                            leftAvatar: _react2.default.createElement(
+                                _Avatar2.default,
+                                {
+                                    color: _colors.pinkA200, backgroundColor: _colors.transparent,
+                                    style: { left: 8 }
+                                },
+                                'B'
+                            ),
+                            rightIconButton: _react2.default.createElement(
+                                'a',
+                                { style: style.a, href: 'http://www.cnblogs.com/sylvenas/p/6413616.html' },
+                                _react2.default.createElement(_link2.default, { style: style.iconLink, color: _colors.lightBlue500 })
+                            ),
+                            primaryText: '\u4E00\u673A\u53CC\u5C4F\u548C\u53CC\u5C4F\u901A\u4FE1\u65B9\u6848\u603B\u7ED3',
+                            secondaryText: _react2.default.createElement(
+                                'p',
+                                null,
+                                '\u9879\u76EE\u4E2D\u9700\u8981\u7528\u5230web\u4E00\u673A\u53CC\u5C4F\uFF0C\u4E5F\u5C31\u662F\u4E00\u53F0\u7535\u8111\uFF0C\u4E24\u4E2A\u5C4F\u5E55\uFF0C\u6BCF\u4E2A\u5C4F\u5E55\u5206\u522B\u5C55\u793A\u4E00\u90E8\u5206\u7684\u5185\u5BB9...'
+                            ),
+                            secondaryTextLines: 2
+                        }),
+                        _react2.default.createElement(
+                            _Subheader2.default,
+                            null,
+                            'React'
+                        ),
+                        _react2.default.createElement(_List.ListItem, {
+                            leftAvatar: _react2.default.createElement(
+                                _Avatar2.default,
+                                {
+                                    color: _colors.pinkA200, backgroundColor: _colors.transparent,
+                                    style: { left: 8 }
+                                },
+                                'C'
+                            ),
+                            rightIconButton: _react2.default.createElement(
+                                'a',
+                                { style: style.a, href: 'http://www.cnblogs.com/sylvenas/p/6410116.html' },
+                                _react2.default.createElement(_link2.default, { style: style.iconLink, color: _colors.lightBlue500 })
+                            ),
+                            primaryText: 'react-router3.x hashHistory render\u4E24\u6B21\u7684bug,\u53CA\u89E3\u51B3\u65B9\u6848',
+                            secondaryText: _react2.default.createElement(
+                                'p',
+                                null,
+                                '\u5148\u5199\u4E00\u4E2A\u7B80\u5355App\u9875\u9762\uFF0C\u5176\u5B9E\u5C31\u662F\u7B80\u5355\u4FEE\u6539\u4E86react-router\u7684\u5B98\u65B9\u4F8B\u5B50\u4E2D\u7684animations\u4F8B\u5B50'
+                            ),
+                            secondaryTextLines: 2
+                        }),
+                        _react2.default.createElement(
+                            _Subheader2.default,
+                            null,
+                            'React-Native'
+                        ),
+                        _react2.default.createElement(_List.ListItem, {
+                            leftAvatar: _react2.default.createElement(
+                                _Avatar2.default,
+                                {
+                                    color: _colors.pinkA200, backgroundColor: _colors.transparent,
+                                    style: { left: 8 }
+                                },
+                                'D'
+                            ),
+                            rightIconButton: _react2.default.createElement(
+                                'a',
+                                { style: style.a, href: 'http://www.cnblogs.com/sylvenas/p/6376300.html' },
+                                _react2.default.createElement(_link2.default, { style: style.iconLink, color: _colors.lightBlue500 })
+                            ),
+                            primaryText: '\u5728windows\u642D\u5EFAreact-native android \u5F00\u53D1\u73AF\u5883\u603B\u7ED3',
+                            secondaryText: _react2.default.createElement(
+                                'p',
+                                null,
+                                '\u5EFA\u8BAE\u7B2C\u4E00\u6B21\u542F\u52A8\u9879\u76EE\u7684\u65F6\u5019\uFF0C\u4F7F\u75285.0\u4EE5\u4E0A\u7248\u672C\u7684android\u865A\u62DF\u673A...'
+                            ),
+                            secondaryTextLines: 2
+                        }),
+                        _react2.default.createElement(
+                            _Subheader2.default,
+                            null,
+                            'webpack'
+                        ),
+                        _react2.default.createElement(_List.ListItem, {
+                            leftAvatar: _react2.default.createElement(
+                                _Avatar2.default,
+                                {
+                                    color: _colors.pinkA200, backgroundColor: _colors.transparent,
+                                    style: { left: 8 }
+                                },
+                                'E'
+                            ),
+                            rightIconButton: _react2.default.createElement(
+                                'a',
+                                { style: style.a, href: 'http://www.cnblogs.com/sylvenas/p/6406981.html' },
+                                _react2.default.createElement(_link2.default, { style: style.iconLink, color: _colors.lightBlue500 })
+                            ),
+                            primaryText: 'webpack1\u5347\u7EA7\u5230webpack2\u6587\u6863\u7FFB\u8BD1',
+                            secondaryText: _react2.default.createElement(
+                                'p',
+                                null,
+                                '\u8FD1\u65E5\u9879\u76EE\u8981\u5347\u7EA7\u5230webpack2.2,\u539F\u6765\u4F7F\u7528\u7684webpack\u7248\u672C\u662F1.12...'
+                            ),
+                            secondaryTextLines: 2
+                        }),
+                        _react2.default.createElement(
+                            _Subheader2.default,
+                            null,
+                            'node.js'
+                        ),
+                        _react2.default.createElement(_List.ListItem, {
+                            leftAvatar: _react2.default.createElement(
+                                _Avatar2.default,
+                                {
+                                    color: _colors.pinkA200, backgroundColor: _colors.transparent,
+                                    style: { left: 8 }
+                                },
+                                'F'
+                            ),
+                            rightIconButton: _react2.default.createElement(
+                                'a',
+                                { style: style.a, href: 'http://www.cnblogs.com/sylvenas/p/6378298.html' },
+                                _react2.default.createElement(_link2.default, { style: style.iconLink, color: _colors.lightBlue500 })
+                            ),
+                            primaryText: 'node.js\u722C\u866B\u676D\u5DDE\u623F\u4EA7\u9500\u552E\u53CA\u6570\u636E\u53EF\u89C6\u5316',
+                            secondaryText: _react2.default.createElement(
+                                'p',
+                                null,
+                                '\u6458\u8981: \u73B0\u5728\u5E74\u8F7B\u4EBA\u523025\u5C81+,\u603B\u7684\u8981\u8003\u8651\u4E70\u623F\u7ED3\u5A5A\u7684\u95EE\u9898,2016\u5E74\u7684\u4E00\u6CE2\u623F\u4EF7...'
+                            ),
+                            secondaryTextLines: 2
+                        }),
+                        _react2.default.createElement(
+                            _Subheader2.default,
+                            null,
+                            'leaflet'
+                        ),
+                        _react2.default.createElement(_List.ListItem, {
+                            leftAvatar: _react2.default.createElement(
+                                _Avatar2.default,
+                                {
+                                    color: _colors.pinkA200, backgroundColor: _colors.transparent,
+                                    style: { left: 8 }
+                                },
+                                'G'
+                            ),
+                            rightIconButton: _react2.default.createElement(
+                                'a',
+                                { style: style.a, href: 'http://www.cnblogs.com/sylvenas/p/6376323.html' },
+                                _react2.default.createElement(_link2.default, { style: style.iconLink, color: _colors.lightBlue500 })
+                            ),
+                            primaryText: 'esri-leaflet\u90E8\u5206\u74E6\u7247\u7F3A\u5931\u95EE\u9898\u53CA\u89E3\u51B3\u529E\u6CD5',
+                            secondaryText: _react2.default.createElement(
+                                'p',
+                                null,
+                                'esri-leaflet\u52A0\u8F7DTileLayer\u7684\u65F6\u5019\uFF0C\u6709\u65F6\u5019\u7531\u4E8E\u6570\u636E\u7684\u539F\u56E0\uFF0C\u9020\u6210...'
+                            ),
+                            secondaryTextLines: 2
+                        })
+                    )
+                )
+            );
+        }
+    }]);
 
-    });
-});
+    return Bog;
+}(_react.Component);

@@ -9,7 +9,7 @@ import { List, ListItem } from 'material-ui/List';
 import ActionGrade from 'material-ui/svg-icons/action/grade';
 import Divider from 'material-ui/Divider';
 import Avatar from 'material-ui/Avatar';
-import RaisedButton from 'material-ui/RaisedButton';
+import RaiseButton from 'material-ui/RaisedButton';
 
 const style = {
     layout: {
@@ -22,11 +22,11 @@ const style = {
         fontSize: 14,
         lineHeight: 2,
     },
-    link:{
-        textAlign:'center'
+    link: {
+        textAlign: 'center'
     },
-    info:{
-        marginTop:10
+    info: {
+        marginTop: 10
     }
 }
 class Tks extends Component {
@@ -45,7 +45,7 @@ class Tks extends Component {
                         />
                         <ListItem key={1}
                             primaryText={<p style={style.details}>过去的2016年里，不断的在工作中学习并大量实践了react相关技术，
-                                越来越深深的发现，前端领域的范围越来愈大，将来会有更多的业务逻辑放在前端中，越来越深深的体味到人的一生都是学习的过程，2017，node.js在等着我！加油！</p>}
+                                越来越深深的发现，前端领域的范围越来愈大，将来会有更多的业务逻辑放在前端中，深深的体味到人的一生都是学习的过程，2017，node.js在等着我！加油！</p>}
                             insetChildren={true}
                         />
                         <ListItem primaryText="致谢"
@@ -57,7 +57,7 @@ class Tks extends Component {
                             insetChildren={true}
                         />
                     </List>
-                    <p style={style.link}>联系方式戳这里<br/><Link to='/info'> <RaisedButton label="个人简介" primary={true} style={style.info}/></Link></p>
+                    <div style={style.link}>联系方式戳这里<br /><Link to='/info'><RaiseButton label='个人简介' primary={true} style={style.info}></RaiseButton> </Link></div>
                 </div>
             </div>
         );

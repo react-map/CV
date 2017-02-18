@@ -19,7 +19,7 @@ const config = {
         contentBase: 'src/static',
         inline: true,
         //host: 'localhost',
-        port: 8080,
+        port: 3232,
         host:'0.0.0.0'
     },
     module: {

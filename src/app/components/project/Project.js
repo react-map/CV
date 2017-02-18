@@ -39,7 +39,7 @@ class Project extends Component {
                             subtitle={
                                 <span>Migration data visualization on map
                                 </span>}
-                            avatar="http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/KuggpgGLsMdOI7cF9dHJ9bjY3gQo5Tlesrruxq4UQvQ!/r/dN4AAAAAAAAA"
+                            avatar="http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/aA67TyveIY26LbX1r9koUAV*b.8AF.FC0XxDJY.OwXI!/r/dN4AAAAAAAAA"
                         />
                         <CardMedia style={style.cardMedia}
                             overlay={<CardTitle subtitle="leaflet.migrationLayer是使用canvas技术来展示人口流动、车辆、航班等迁徙数据，在地图上的数据可视化。" />}>
@@ -51,7 +51,7 @@ class Project extends Component {
                         <CardHeader
                             title="hangzhouRealEstate"
                             subtitle="Hangzhou daily real estate sales details"
-                            avatar="http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/KuggpgGLsMdOI7cF9dHJ9bjY3gQo5Tlesrruxq4UQvQ!/r/dN4AAAAAAAAA"
+                            avatar="http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/aA67TyveIY26LbX1r9koUAV*b.8AF.FC0XxDJY.OwXI!/r/dN4AAAAAAAAA"
                         />
                         <CardMedia
                             overlay={<CardTitle subtitle="使用node.js爬取网络上杭州房产每天的实时销售数据，结合高德地图展示，楼盘具体地理位置、销售面积、单价、预定数等等。" />}
@@ -63,7 +63,7 @@ class Project extends Component {
                         <CardHeader
                             title="leaflet.magicMarker"
                             subtitle="Adding magical animation effect to a marker while loading."
-                            avatar="http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/KuggpgGLsMdOI7cF9dHJ9bjY3gQo5Tlesrruxq4UQvQ!/r/dN4AAAAAAAAA"
+                            avatar="http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/aA67TyveIY26LbX1r9koUAV*b.8AF.FC0XxDJY.OwXI!/r/dN4AAAAAAAAA"
                         />
                         <CardMedia
                             overlay={<CardTitle subtitle="在初始化marker的时候，自定义多种动画效果。" />}

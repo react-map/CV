@@ -18,6 +18,11 @@ import City from 'material-ui/svg-icons/social/location-city';
 import SvgIcon from 'material-ui/SvgIcon';
 import IconLink from 'material-ui/svg-icons/content/link';
 
+import photo from '../../../static/img/photo.jpg';
+import github from '../../../static/img/github.svg';
+import bog from '../../../static/img/bog.svg';
+import work from '../../../static/img/work.svg';
+
 const style = {
     transparent: {
         backgroundColor: '#fff',
@@ -39,11 +44,7 @@ class Info extends Component {
     componentWillMount() {
         window.scrollTo(0, 0);
     }
-    
-    shouldComponentUpdate(nextProps, nextState) {
-        return (this.props.router.location.action === 'PUSH');
-    }
-    
+
     render() {
         return (
             <div >
@@ -52,7 +53,7 @@ class Info extends Component {
                     <List>
                         <ListItem
                             primaryText="赵祥涛/男/1990"
-                            leftAvatar={<Avatar src="http://www.material-ui.com/images/adhamdannaway-128.jpg" />}
+                            leftAvatar={<Avatar src={photo} />}
                         />
                         <ListItem
                             leftIcon={<CommunicationCall style={style.svg} color={greenA700} />}
@@ -85,7 +86,7 @@ class Info extends Component {
                         />
                         <ListItem
                             primaryText="https://github.com/react-map"
-                            leftAvatar={<Avatar style={style.transparent} src="./img/github.svg" />}
+                            leftAvatar={<Avatar style={style.transparent} src={github} />}
                             rightIcon={
                                 <a href="https://github.com/react-map">
                                     <IconLink color={lightBlue500} />
@@ -94,7 +95,7 @@ class Info extends Component {
                         />
                         <ListItem
                             primaryText="http://www.cnblogs.com/sylvenas"
-                            leftAvatar={<Avatar style={style.transparent} src="./img/bog.svg" />}
+                            leftAvatar={<Avatar style={style.transparent} src={bog} />}
                             rightIcon={
                                 <a href="http://www.cnblogs.com/sylvenas">
                                     <IconLink color={lightBlue500} />
@@ -103,7 +104,7 @@ class Info extends Component {
                         />
                         <ListItem
                             primaryText="期望职位:高级前端开发工程师"
-                            leftAvatar={<Avatar style={style.transparent} src="./img/work.svg" />}
+                            leftAvatar={<Avatar style={style.transparent} src={work} />}
                         />
                         <ListItem
                             primaryText="期望城市:杭州"
