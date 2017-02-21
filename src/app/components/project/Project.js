@@ -32,7 +32,7 @@ class Project extends Component {
         return (
             <div>
                 <Nav parentUrl={'/'} parentName={'首页'} nowName={'开源作品'}></Nav>
-                <div style={style.layout}>
+                <div style={style.layout}>           
                     <Card>
                         <CardHeader
                             title="leaflet.migrationLayer"
@@ -43,7 +43,21 @@ class Project extends Component {
                         />
                         <CardMedia style={style.cardMedia}
                             overlay={<CardTitle subtitle="leaflet.migrationLayer是使用canvas技术来展示人口流动、车辆、航班等迁徙数据，在地图上的数据可视化。" />}>
-                            <img style={style.img} src="./img/project01.gif" />
+                            <img style={style.img} src="http://a1.qpic.cn/psb?/V14M6vLS010qBs/pQziH.bmgqtr*X6TZD6EJPzVWKmNuCzDtUjpOjFNTDE!/b/dG4BAAAAAAAA&bo=IAOQASADkAECJAA!&rf=viewer_4" />
+                        </CardMedia>
+
+                    </Card>
+                    <Card>
+                        <CardHeader
+                            title="react-magic"
+                            subtitle={
+                                <span>A collection of magic animations for react components
+                                </span>}
+                            avatar="http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/aA67TyveIY26LbX1r9koUAV*b.8AF.FC0XxDJY.OwXI!/r/dN4AAAAAAAAA"
+                        />
+                        <CardMedia style={style.cardMedia}
+                            overlay={<CardTitle subtitle="Although React provides a way to implement arbitrary animations, it is not an easy task to do it, even for simple animations. That's where react-magic package comes in. " />}>
+                            <img style={style.img} src="http://a2.qpic.cn/psb?/V14M6vLS010qBs/zysQGt4YVIrP2dfxR6Rv6XmEoM79iLcKAq1TinOHm7o!/b/dCUAAAAAAAAA&bo=qAS2AqgEtgICcFQ!&rf=viewer_4" />
                         </CardMedia>
 
                     </Card>

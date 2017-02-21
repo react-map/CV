@@ -106,10 +106,10 @@ class Info extends Component {
                             primaryText="期望职位:高级前端开发工程师"
                             leftAvatar={<Avatar style={style.transparent} src={work} />}
                         />
-                        <ListItem
+                        {/*<ListItem
                             primaryText="期望城市:杭州"
                             leftAvatar={<City style={style.svg} />}
-                        />
+                        />*/}
                     </List>
                 </div>
             </div>
