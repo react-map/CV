@@ -43,7 +43,7 @@ class Project extends Component {
                         />
                         <CardMedia style={style.cardMedia}
                             overlay={<CardTitle subtitle="leaflet.migrationLayer是使用canvas技术来展示人口流动、车辆、航班等迁徙数据，在地图上的数据可视化。" />}>
-                            <img style={style.img} src="http://a1.qpic.cn/psb?/V14M6vLS010qBs/pQziH.bmgqtr*X6TZD6EJPzVWKmNuCzDtUjpOjFNTDE!/b/dG4BAAAAAAAA&bo=IAOQASADkAECJAA!&rf=viewer_4" />
+                            <img style={style.img} src="./img/project01.gif" />
                         </CardMedia>
 
                     </Card>
@@ -57,7 +57,21 @@ class Project extends Component {
                         />
                         <CardMedia style={style.cardMedia}
                             overlay={<CardTitle subtitle="Although React provides a way to implement arbitrary animations, it is not an easy task to do it, even for simple animations. That's where react-magic package comes in. " />}>
-                            <img style={style.img} src="http://a2.qpic.cn/psb?/V14M6vLS010qBs/zysQGt4YVIrP2dfxR6Rv6XmEoM79iLcKAq1TinOHm7o!/b/dCUAAAAAAAAA&bo=qAS2AqgEtgICcFQ!&rf=viewer_4" />
+                            <img style={style.img} src="./img/react-magic.gif" />
+                        </CardMedia>
+
+                    </Card>
+                     <Card>
+                        <CardHeader
+                            title="react版本在线简历"
+                            subtitle={
+                                <span>react+react-router实现web端和pc端自适应简历
+                                </span>}
+                            avatar="http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/aA67TyveIY26LbX1r9koUAV*b.8AF.FC0XxDJY.OwXI!/r/dN4AAAAAAAAA"
+                        />
+                        <CardMedia style={style.cardMedia}
+                            overlay={<CardTitle subtitle="看到这里，就不需要说明了吧" />}>
+                            <img style={style.img} src="./img/cv.png" />
                         </CardMedia>
 
                     </Card>
@@ -70,7 +84,7 @@ class Project extends Component {
                         <CardMedia
                             overlay={<CardTitle subtitle="使用node.js爬取网络上杭州房产每天的实时销售数据，结合高德地图展示，楼盘具体地理位置、销售面积、单价、预定数等等。" />}
                         >
-                            <img style={style.img} src="http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/0lxNfa73Xw.Crli4Y0Ug7*I.bLeJsIpnTY6ADgNlEQk!/r/dHkBAAAAAAAA" />
+                            <img style={style.img} src="./img/project02.png" />
                         </CardMedia>
                     </Card>
                     <Card>

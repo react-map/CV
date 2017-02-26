@@ -42,12 +42,12 @@ class Work extends Component {
                         />
                         <ListItem key={1}
                             primaryText="常州2016便民工程项目"
+                            initiallyOpen={true}
                             insetChildren={true}
                             nestedItems={
                                 [<ListItem
                                     key={1.1}
-                                    primaryText={<p style={style.details} ><b>主要担任职责:</b>在常州项目中担任二屏部分(软件为web一机双屏) 开发负责人， 主要承担工作为， 二屏前端技术选型， 框架设计， 开发任务制定， 以及难点功能攻克,
-                                         和小伙伴们一起完成了二屏部分的框架设计和主要功能的实现。
+                                    primaryText={<p style={style.details} ><b>主要担任职责:</b>在常州项目中担任开发负责人，主要承担工作为， 前端技术选型，框架设计，开发任务制定，以及难点功能攻克，和小伙伴们一起完成了二屏部分的框架设计和主要功能的实现。 
                                         <br /> <b > 最终技术选型 </b>：ES6+react+react-route+react-redux+leaflet
                                         <br /><b> 遇到的比较困难的问题 </b>ES6,react等技术如何与传统的前端地图api相结合使用,以及在地图不重新加载(数据量非常大， 重绘一次需要2S + ) 的情况下， 如何进行功能和代码的切割和合并，
                                           解决方案： 把地图部分作为一个基础组件， 全局通用， 页面部分按照前端路由机制切割功能和代码;
@@ -82,7 +82,7 @@ class Work extends Component {
                                 [<ListItem
                                     key={3.1}
                                     primaryText={<p style={style.details} >
-                                        <b>主要使用技术</b>：Java,Silverlight,ArcGIS api for Silverlight.
+                                        <b>主要使用技术</b>：Java,javascript,ArcGIS api for javascript.
                                         <br />公司已经有成熟的产品，所以在该项目上主要工作内容是和甲方(台州交警支队)沟通，
                                         制定台州定制化的开发需求，以及对应的开发任务制定，和实际开发工作。
                                         </p>}
@@ -97,25 +97,17 @@ class Work extends Component {
                             secondaryText="2013.07-2015.07"
                             initiallyOpen={true}
                             leftAvatar={<Avatar color={pinkA200} backgroundColor={transparent} style={{ left: 8 }} >B </Avatar>}
-                        />
-                        <ListItem key={1123}
-                            primaryText="延安新区建设数字化系统"
-                            insetChildren={true}
                             nestedItems={
                                 [<ListItem
                                     key={1.1312}
                                     primaryText={<p style={style.details} >
-                                        1.前期和业主沟通交流获得延安新区相关原始数据，包括卫星影像，原地貌，填挖方，给排水等等，并使用ArcGIS平台和SQL Server建立空间数据库。
-                                        2.发布地图服务并通过silverlight富客户端技术在整个系统WEB首页上展示。
-                                        3.实现基本的GIS功能，例如图层控制，面积长度量算，地图要素点击查询，统计等等。
-                                        4.和三维部门合作完成三维横剖纵剖功能，此功能较为复杂，涉及分合同段，每个合同段分时间的展示剖切位置的原地貌，填挖方，盲沟，强夯等等数据。
+                                       第一份正职工作，前期主要负责ASP.NET开发，主要为silverlight富客户端技术，后来转为JS前端开发，负责编写前端页面，主要编写基础库和ui组件，主要使用技术为js/jquery+css，在工作之余不断学习和提升自己对原生js的基本原理的掌握，在第一份工作中，打牢了web前端的基础，并且对服客户端技术和ASP.NET后台开发技术，有一定的了解，后因为公司业务方向比较窄，工作技术没能继续成长而离职。
                                         </p>}
                                     insetChildren={true}
                                 />
                                 ]
                             }
                         />
-
                     </List>
                 </div>
             </div>
