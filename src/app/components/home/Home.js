@@ -17,7 +17,7 @@ class Home extends Component {
         var settings = {
             dots: true,
             infinite: true,
-            speed: 300,
+            speed: 200,
             slidesToShow: 1,
             slidesToScroll: 1,
             autoplay: true
@@ -38,7 +38,7 @@ class Home extends Component {
                         <p className={styles.memory}>2015<br /><br />舟行碧波上,人在画中游</p>
                     </div>
                     <div className={styles.con}>
-                        <img className={styles.sliderImg} src="http://r.photo.store.qq.com/psb?/V14M6vLS010qBs/JNLSeJXSQLPkiBihpT7ez3gc8J5UU506PyU*O*RlfV4!/r/dN8AAAAAAAAA" />
+                        <img className={styles.sliderImg} src="./img/2016.png" />
                         <p className={styles.memory}>2016<br /><br />For life to be a fairytale<br /> Perhaps all you need is to believe.</p>
                     </div>
                     <div className={styles.con}>
